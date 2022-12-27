@@ -1,0 +1,24 @@
+#!/bin/bash
+TIMEOUT=$1
+SCRIPT_PATH=$1
+PID=-1
+START_TIMESTAMP=$(date+%s)
+LOGS_FILE="output_$START_TIMESTAMP.log"
+ERRORS_FILE="errors_$START_TIMESTAMP.log"
+while [0 - eq 0]; do
+    if !ps -p $PID > /dev/null 2>&1; then
+        bash $SCRIPT_PATH 1>>$LOGS_FILE 2>>$ERRORS_FILE
+        PID=$!
+        echo "PID: $PID"
+    else
+        echo "If the first process wont end, the second begin wont start"
+    fi
+    sleep $TIMEOUT
+done
+
+
+
+
+
+
+//fi - закрывает условный оператор if; timeout команда с ограничем по времени;
