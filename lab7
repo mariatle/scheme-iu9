@@ -3,7 +3,7 @@ TASK 1
 #!/bin/bash
 TIMEOUT=$1
 SCRIPT_PATH=$2
-PID=-1  #status pro
+PID=-1  #status process
 START_TIMESTAMP=$(date+%s)
 LOGS_FILE_NAME="output_$START_TIMESTAMP.log"
 ERRORS_FILE_NAME="errors_$START_TIMESTAMP.log"
