@@ -8,10 +8,10 @@ START_TIMESTAMP=$(date+%s)
 LOGS_FILE_NAME="output_$START_TIMESTAMP.log"
 ERRORS_FILE_NAME="errors_$START_TIMESTAMP.log"
 while [0]; do
-    if !ps -p $PID > /dev/null 2>&1; then
-        bash $SCRIPT_PATH 1>>$LOGS_FILE_NAME 2>>$ERRORS_FILE_NAME
-        PID=$!
-        echo "PID: $PID"
+    if !ps -p $PID > /dev/null 2>&1; then                                                    #есть ли информация о процессе
+        bash $SCRIPT_PATH 1>>$LOGS_FILE_NAME 2>>$ERRORS_FILE_NAME                            #выпонение команды
+        PID=$!                                                                               #pid последнего процесса
+        echo "PID: $PID"                                                                     #вывод номер
     else
         echo "If the first process wont end, the second begin wont start"
     fi
