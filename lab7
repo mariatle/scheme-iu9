@@ -7,7 +7,7 @@ PID=-1  #status process
 START_TIMESTAMP=$(date+%s)
 LOGS_FILE_NAME="output_$START_TIMESTAMP.log"
 ERRORS_FILE_NAME="errors_$START_TIMESTAMP.log"
-while [0]; do
+while [0 - eq 0]; do                                                                         #выбрать процессы PID -p; информация об опереденном процессе
     if !ps -p $PID > /dev/null 2>&1; then                                                    #есть ли информация о процессе
         bash $SCRIPT_PATH 1>>$LOGS_FILE_NAME 2>>$ERRORS_FILE_NAME                            #выпонение команды
         PID=$!                                                                               #pid последнего процесса
